@@ -24,5 +24,7 @@ const envConfig = {
 export default {
   env,
   mock: true,
+  // localstorage存储数据的命名空间
+  namespace: 'admin',
   ...envConfig[env]
 }

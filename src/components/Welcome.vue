@@ -4,19 +4,19 @@
 </template>
 
 <script>
-import request from "../utils/request";
+// import request from "../utils/request";
 
 export default {
   name: "Welcome",
   mounted() {
-    request({
-      method: "post",
-      url: "/auth/login/",
-      data: {
-        username: "username1",
-        password: "username1"
-      }
-    });
+    // request({
+    //   method: "post",
+    //   url: "/auth/login/",
+    //   data: {
+    //     username: "username1",
+    //     password: "username1"
+    //   }
+    // });
   }
 };
 </script>
