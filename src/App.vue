@@ -5,11 +5,10 @@
 <script>
 export default {
   name: "App",
-  mounted() {
-    this.$storage.clearItem('hah')
-    this.$storage.setItem("userInfo", { "name": "java", "age": 32, "gender": "男", "hobbies": [1, 2, 3] });
-  }
 };
 </script>
 
-<style></style>
+<style lang="sass">
+@import "assets/style/index.scss"
+@import "assets/style/reset.css"
+</style>
