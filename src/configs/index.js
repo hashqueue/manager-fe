@@ -9,15 +9,18 @@ const env = import.meta.env.MODE || 'production'
 const envConfig = {
   development: {
     baseApi: '/api',
-    mockApi: 'http://localhost:8080/api'
+    mockApi:
+      'https://www.fastmock.site/mock/a883cd7f48c399b721bedf1a963afaf7/api'
   },
   test: {
     baseApi: '//test.futurefe.com/api',
-    mockApi: 'http://localhost:8080/api'
+    mockApi:
+      'https://www.fastmock.site/mock/a883cd7f48c399b721bedf1a963afaf7/api'
   },
   production: {
     baseApi: '//test.futurefe.com/api',
-    mockApi: 'http://localhost:8080/api'
+    mockApi:
+      'https://www.fastmock.site/mock/a883cd7f48c399b721bedf1a963afaf7/api'
   }
 }
 

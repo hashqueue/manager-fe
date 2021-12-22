@@ -7,6 +7,7 @@ import { ElMessage } from 'element-plus'
 
 // const TOKEN_INVALID = 'Token认证失败, 请重新登录.'
 const NETWORK_ERROR = '网络请求异常, 请稍后重试.'
+const REQUEST_API_SUCCESS = '请求后端接口成功.'
 
 const service = axios.create({
   baseURL: config.baseApi,
@@ -39,7 +40,7 @@ service.interceptors.response.use(
     // console.log(response)
     const { code, data, message } = response.data
     if (code === 20000) {
-      ElMessage.success(message)
+      ElMessage.success(message || REQUEST_API_SUCCESS)
       return data
     } else {
       ElMessage.error(message || NETWORK_ERROR)
@@ -68,9 +69,15 @@ function request(options) {
   if (options.method.toLowerCase() === 'get') {
     options.params = options.data
   }
+  // 局部mock(apis/index.js中的请求函数中的配置项mock)开启时覆盖全局mock的值
+  if (options.mock !== undefined) {
+    config.mock = options.mock
+  }
+  // 生产环境
   if (config.env === 'production') {
     service.defaults.baseURL = config.baseApi
   } else {
+    // 非生产环境
     service.defaults.baseURL = config.mock ? config.mockApi : config.baseApi
   }
   return service(options)
