@@ -78,7 +78,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .login-wrapper {
   display: flex;
   // 水平方向居中

@@ -2,6 +2,14 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
+    path: '/login',
+    name: 'login',
+    meta: {
+      title: '登录'
+    },
+    component: () => import('../views/Login.vue')
+  },
+  {
     path: '/',
     name: 'home',
     meta: {
@@ -16,17 +24,9 @@ const routes = [
         meta: {
           title: '欢迎'
         },
-        component: () => import('../components/Welcome.vue')
+        component: () => import('../views/Welcome.vue')
       }
     ]
-  },
-  {
-    path: '/login',
-    name: 'login',
-    meta: {
-      title: '登录'
-    },
-    component: () => import('../views/Login.vue')
   }
 ]
 const router = createRouter({
