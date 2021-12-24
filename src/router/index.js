@@ -7,7 +7,7 @@ const routes = [
     meta: {
       title: '登录'
     },
-    component: () => import('../views/Login.vue')
+    component: () => import('@/views/Login.vue')
   },
   {
     path: '/',
@@ -15,16 +15,34 @@ const routes = [
     meta: {
       title: '首页'
     },
-    component: () => import('../components/Home.vue'),
+    component: () => import('@/components/Home.vue'),
     redirect: '/welcome',
     children: [
       {
-        path: '/welcome',
+        path: 'welcome',
         name: 'welcome',
         meta: {
           title: '欢迎'
         },
-        component: () => import('../views/Welcome.vue')
+        component: () => import('@/views/Welcome.vue')
+      },
+      {
+        path: 'user',
+        name: 'user',
+        meta: {
+          title: '用户管理'
+        },
+        component: () => import('@/views/Welcome.vue'),
+        children: [
+          {
+            path: 'info',
+            name: 'info',
+            meta: {
+              title: '信息统计'
+            },
+            component: () => import('@/views/Welcome.vue')
+          }
+        ]
       }
     ]
   }

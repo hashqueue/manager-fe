@@ -2,7 +2,7 @@
  * axios二次封装
  */
 import axios from 'axios'
-import config from '../configs'
+import config from '@/configs'
 import { ElMessage } from 'element-plus'
 
 // const TOKEN_INVALID = 'Token认证失败, 请重新登录.'

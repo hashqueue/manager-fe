@@ -27,7 +27,9 @@
           <el-icon class="menu-fold" @click="toggle">
             <fold />
           </el-icon>
-          <div class="bread">面包屑</div>
+          <div class="bread">
+            <bread-crumb />
+          </div>
         </div>
         <div class="user-info">
           <el-badge :is-dot="true" class="notice" type="danger">
@@ -61,12 +63,14 @@
 </template>
 
 <script>
-import TreeMenu from "./TreeMenu.vue";
+import TreeMenu from "@/components/TreeMenu.vue";
+import BreadCrumb from "@/components/BreadCrumb.vue";
 
 export default {
   name: "Home",
   components: {
-    TreeMenu
+    TreeMenu,
+    BreadCrumb
   },
   data() {
     return {

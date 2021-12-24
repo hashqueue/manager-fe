@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import App from '@/App.vue'
+import router from '@/router'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import storage from './utils/storage'
+import storage from '@/utils/storage'
 import * as ElIcon from '@element-plus/icons-vue'
-import api from './apis/index'
-import store from './store'
+import api from '@/apis/index'
+import store from '@/store'
 
 // console.log('env', import.meta.env)
 const app = createApp(App)

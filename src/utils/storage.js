@@ -1,7 +1,7 @@
 /**
  * 对浏览器存储localstorage封装
  */
-import config from '../configs'
+import config from '@/configs'
 
 export default {
   /**
