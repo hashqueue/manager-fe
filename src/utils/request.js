@@ -39,7 +39,8 @@ service.interceptors.response.use(
   (response) => {
     // console.log(response)
     const { code, data, message } = response.data
-    if (code === 20000) {
+    // TODO 此处的业务状态码需要根据后端进行配置
+    if (code === 20000 || code === 200) {
       ElMessage.success(message || REQUEST_API_SUCCESS)
       return data
     } else {

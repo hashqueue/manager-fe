@@ -9,7 +9,7 @@
       </div>
       <!--    导航菜单-->
       <el-menu
-        default-active="2"
+        :default-active="activateMenu"
         class="nav-menu"
         text-color="#fff"
         background-color="#001529"
@@ -17,27 +17,7 @@
         :collapse="isCollapse"
         active-text-color="#409eff"
       >
-        <el-sub-menu index="1">
-          <template #title>
-            <el-icon>
-              <setting />
-            </el-icon>
-            <span>系统管理</span>
-          </template>
-          <el-menu-item index="1-1">用户管理</el-menu-item>
-          <el-menu-item index="1-2">菜单管理</el-menu-item>
-          <el-menu-item index="1-3">角色管理</el-menu-item>
-        </el-sub-menu>
-        <el-sub-menu index="2">
-          <template #title>
-            <el-icon>
-              <finished />
-            </el-icon>
-            <span>审批管理</span>
-          </template>
-          <el-menu-item index="2-1">休假管理</el-menu-item>
-          <el-menu-item index="2-2">待我审批</el-menu-item>
-        </el-sub-menu>
+        <tree-menu :user-menu-list="userMenuList" />
       </el-menu>
     </div>
     <!--    内容主体-->
@@ -81,16 +61,23 @@
 </template>
 
 <script>
+import TreeMenu from "./TreeMenu.vue";
+
 export default {
   name: "Home",
+  components: {
+    TreeMenu
+  },
   data() {
     return {
+      activateMenu: location.hash.slice(1),
       isCollapse: false,
-      userInfo: {
-        userName: "Jack",
-        userEmail: "Jack@admin.com"
-      }
+      userMenuList: null,
+      userInfo: this.$store.state.userInfo
     };
+  },
+  created() {
+    this.getMenuList();
   },
   methods: {
     // 控制左侧菜单展开或合并
@@ -103,7 +90,11 @@ export default {
       // 如果是退出操作 ===> 清空用户信息
       this.$router.push("/login");
       this.$store.commit("saveUserInfo", "");
-      this.userInfo = undefined;
+    },
+    getMenuList() {
+      this.$api.getMenuList().then((res) => {
+        this.userMenuList = res;
+      });
     }
   }
 };
@@ -195,7 +186,7 @@ export default {
 
       .user-info {
         .notice {
-          line-height: 30px;
+          line-height: 25px;
           margin-right: 15px;
         }
 

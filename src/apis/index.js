@@ -11,5 +11,12 @@ export default {
       data: data,
       mock: true
     })
+  },
+  getMenuList() {
+    return request({
+      url: '/menu/list',
+      method: 'get',
+      data: {}
+    })
   }
 }

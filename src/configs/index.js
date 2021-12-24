@@ -10,17 +10,17 @@ const envConfig = {
   development: {
     baseApi: '/api',
     mockApi:
-      'https://www.fastmock.site/mock/a883cd7f48c399b721bedf1a963afaf7/api'
+      'https://www.fastmock.site/mock/c1c302e8baed9894c48c17e4738c092e/api'
   },
   test: {
     baseApi: '//test.futurefe.com/api',
     mockApi:
-      'https://www.fastmock.site/mock/a883cd7f48c399b721bedf1a963afaf7/api'
+      'https://www.fastmock.site/mock/c1c302e8baed9894c48c17e4738c092e/api'
   },
   production: {
     baseApi: '//test.futurefe.com/api',
     mockApi:
-      'https://www.fastmock.site/mock/a883cd7f48c399b721bedf1a963afaf7/api'
+      'https://www.fastmock.site/mock/c1c302e8baed9894c48c17e4738c092e/api'
   }
 }
 
